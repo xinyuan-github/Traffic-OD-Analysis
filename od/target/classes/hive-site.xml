@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+
+	<!-- jdbc 连接的 URL -->
+	<property>
+		<name>javax.jdo.option.ConnectionURL</name>
+		<value>jdbc:mysql://node01:3306/metastore?allowPublicKeyRetrieval=true&amp;createDatabaseIfNotExist=true&amp;useSSL=false</value>
+	</property>
+	
+	<property>
+		<name>system:java.io.tmpdir</name>
+		<value>/usr/local/hiveIO/iotmp</value>
+	</property>
+	
+	<property>
+		<name>system:user.name</name>
+		<value>cxy</value>
+	</property>
+	
+	<!-- jdbc 连接的 Driver-->
+	<property>
+		<name>javax.jdo.option.ConnectionDriverName</name>
+		<value>com.mysql.cj.jdbc.Driver</value>
+	</property>
+	
+	<!-- jdbc 连接的 username-->
+	<property>
+		<name>javax.jdo.option.ConnectionUserName</name>
+		<value>root</value>
+	</property>
+	
+	<!-- jdbc 连接的 password -->
+	<property>
+		<name>javax.jdo.option.ConnectionPassword</name>
+		<value>1111</value>
+	</property>
+	
+	<!-- Hive 元数据存储版本的验证 -->
+	<property>
+		<name>hive.metastore.schema.verification</name>
+		<value>false</value>
+	</property>
+	
+	<!--元数据存储授权-->
+	<property>
+		<name>hive.metastore.event.db.notification.api.auth</name>
+		<value>false</value>
+	</property>
+	
+	<!-- Hive 默认在 HDFS 的工作目录 -->
+	<property>
+		<name>hive.metastore.warehouse.dir</name>
+		<value>/user/hive/warehouse</value>
+	</property>
+	
+	<!-- 指定存储元数据要连接的地址 -->
+	<property>
+		<name>hive.metastore.uris</name>
+		<value>thrift://node01:9083</value>
+	</property>
+	
+	<!-- 指定 hiveserver2 连接的 host -->
+	<property>
+		<name>hive.server2.thrift.bind.host</name>
+		<value>node01</value>
+	</property>
+	
+	<!-- 指定 hiveserver2 连接的端口号 -->
+	<property>
+		<name>hive.server2.thrift.port</name>
+		<value>10000</value>
+	</property>
+	
+	<property>
+		<name>hive.cli.print.header</name>
+		<value>true</value>
+	</property>
+
+	<property>
+		<name>hive.cli.print.current.db</name>
+		<value>true</value>
+	</property>
+
+	<!--hbase+hive-->
+	<property>
+		<name>hive.zookeeper.quorum</name>
+		<value>node01,node02,node03</value>
+		<description>The list of ZooKeeper servers to talk to. This is
+		only needed for read/write locks.</description>
+	</property>
+	
+	<property>
+		<name>hive.zookeeper.client.port</name>
+		<value>2181</value>
+		<description>The port of ZooKeeper servers to talk to. This is
+		only needed for read/write locks.</description>
+	</property>
+	
+	<!-- spark+hive -->
+	
+	<property>
+		<name>spark.sql.hive.metastore.version</name>
+		<value>3.1.2</value>
+	</property>
+	
+	<property>
+		<name>spark.sql.hive.metastore.jars</name>
+		<value>/opt/modules/hive-3.1.2/lib/*</value>
+	</property>
+	
+	<property>
+		<name>hive.aux.jars.path</name>
+		<value>/opt/modules/hive-3.1.2/lib/*,/opt/modules/hive-3.1.2/jdbc/*</value>
+		<description>These JAR file are available to all users for all jobs。</description>
+	</property>
+	
+	<!--配置Hive Metastore:MySQL连接信息 -->
+	
+	<property>
+		<name>javax.jdo.option.ConnectionURL</name>
+		<value>
+			jdbc:mysql://node01:3306/jt?createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8
+		</value>
+		<description>如果是mysql：jdbc:mysql://localhost:3306/hive</description>
+	</property>
+	
+	<property>
+		<name>javax.jdo.option.ConnectionDriverName</name>
+		<value>com.mysql.cj.jdbc.Driver</value>
+		<description>如果是mysql：com.mysql.jdbc.Driver</description>
+	</property>
+	
+	<property>
+		<name>javax.jdo.option.ConnectionUserName</name>
+		<value>root</value>
+	</property>
+	
+	<property>
+		<name>javax.jdo.option.ConnectionPassword</name>
+		<value>1111</value>
+	</property>  
+	
+</configuration>

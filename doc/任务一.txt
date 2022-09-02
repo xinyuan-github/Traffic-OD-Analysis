@@ -1,0 +1,25 @@
+项目开发注意事项
+
+1. 设置 maven（如果不使用 IDEA 自带的 maven 的话）
+
+2. 在 pom.xml 文件中添加依赖项和构建设置
+
+3. 检查 jdk、sdk 配置
+
+4. 配置对 hive 访问的支持：将 hive-site.xml 文件拷贝到项目的 resources 目录下
+
+5. 将 ETL 方法封装到单独的工具类中
+
+6. 编码，注意在创建 SparkSession 时，启用 Hive 支持；
+
+7. 在 IDEA 执行程序之前，先把 zeppelin 服务停止：zeppelin-daemon.sh stop
+   并且 hive --service metastore
+
+
+
+作业：
+   在工具类中，增加将分析结果导出到 mysql 中的方法。
+
+
+
+
